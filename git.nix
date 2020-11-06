@@ -15,5 +15,17 @@
       };
     };
     includes = [ { path = "~/.gitconfig.local"; } ];
+    pull = {
+      rebase = true;
+    };
+	status = {
+      submoduleSummary = true;
+    };
+    submodule = {
+      recurse = true;
+    };
+	core = {
+      editor = "vim";
+    };
   }; 
 }
