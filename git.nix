@@ -13,19 +13,19 @@
         driver = "~/.config/composer/vendor/bin/composer-git-merge-driver %O %A %B %L %P";
         recursive = "binary";
       };
+      pull = {
+        rebase = true;
+      };
+      status = {
+        submoduleSummary = true;
+      };
+      submodule = {
+        recurse = true;
+      };
+      core = {
+        editor = "vim";
+      };
     };
     includes = [ { path = "~/.gitconfig.local"; } ];
-    pull = {
-      rebase = true;
-    };
-	status = {
-      submoduleSummary = true;
-    };
-    submodule = {
-      recurse = true;
-    };
-	core = {
-      editor = "vim";
-    };
   }; 
 }
