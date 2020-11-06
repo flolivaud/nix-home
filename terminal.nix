@@ -96,25 +96,8 @@
 
 	## highlight activity in status bar
 	setw -g window-status-activity-style fg="#66cccc"
-  programs.vim = {
-    enable = true;
-    extraConfig = ''
-      set nowritebackup
-      set noswapfile
-      
-      set tabstop=4
-      set shiftwidth=4
-      set expandtab
+	setw -g window-status-activity-style bg="#2d2d2d"
 
-      filetype on
-      filetype plugin on
-      filetype indent on
-      set autoindent
-      set smartindent
-
-      set number
-    '';
-  };
 	## pane border and colors
 	set -g pane-active-border-style bg=default
 	set -g pane-active-border-style fg="#515151"
