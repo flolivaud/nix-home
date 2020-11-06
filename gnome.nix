@@ -107,6 +107,11 @@ in
       "org/gnome/shell/extensions/user-theme" = {
         name = "Arc-Dark";
       };
+      "org/gnome/shell/extensions/notification-center" = {
+		autohide = 0;
+		banner-pos = "center";
+		indicator-pos = "right";
+      };
       "org/gnome/shell" = {
         enabled-extensions = [
           "dash-to-dock@micxgx.gmail.com"
