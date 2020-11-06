@@ -23,6 +23,7 @@ in
       ./gnome.nix
       ./terminal.nix
       ./editors.nix
+      ./git.nix
   ];
 
   # This value determines the Home Manager release that your
