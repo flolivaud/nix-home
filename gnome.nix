@@ -1,4 +1,5 @@
 { pkgs, ... }: 
+
 let 
   ge-dash-to-dock = pkgs.stdenv.mkDerivation {
     pname = "ge-dash-to-dock";
@@ -42,6 +43,20 @@ let
   };
 in
 {
+  gtk = {
+    enable = true;
+
+    theme = {
+      package = pkgs.arc-theme;
+      name = "Arc-Dark";
+    };
+
+    iconTheme = {
+      package = pkgs.flat-remix-icon-theme;
+      name = "Flat-Remix-Blue-Dark";
+    };
+  }; 
+
   home.packages = with pkgs; [
     gnome3.dconf-editor
   ];
