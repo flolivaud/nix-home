@@ -34,6 +34,9 @@ in
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
+  home.username = "$USER";
+  home.homeDirectory = "/home/$USER";
+
   home.stateVersion = "20.09";
 
   home.sessionVariables = {
