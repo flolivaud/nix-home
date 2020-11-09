@@ -41,13 +41,6 @@ in
     LOCALE_ARCHIVE_2_27 = "${pkgs.glibcLocales}/lib/locale/locale-archive";
   };
 
-
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "olivaudf";
-  home.homeDirectory = "/home/olivaudf";
-
-
   nixpkgs.config = { allowUnfree = true; allowBroken = true; };
 
   # Enable settings that make home manager work better on Linux distribs other than NixOS
