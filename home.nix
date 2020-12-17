@@ -42,6 +42,7 @@ in
   home.sessionVariables = {
     LOCALE_ARCHIVE_2_11 = "${oldpkgs.glibcLocales}/lib/locale/locale-archive";
     LOCALE_ARCHIVE_2_27 = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+    EDITOR = "vim";
   };
 
   nixpkgs.config = { allowUnfree = true; allowBroken = true; };
@@ -52,7 +53,6 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    teams
     slack-dark
     powerline
     jetbrains.phpstorm
@@ -65,11 +65,14 @@ in
     ripgrep
     fd
     meld
+    vlc
+    wpsoffice
   ];
 
   programs.bash.enable = true;
   xsession.enable = true;
   xsession.windowManager.command = "true";
+
   xdg.enable = true;
   xdg.mime.enable = true;
 

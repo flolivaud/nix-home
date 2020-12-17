@@ -41,6 +41,20 @@ let
       cp -r . $out
     '';
   };
+
+  ge-screenshot-tool = pkgs.stdenv.mkDerivation {
+    pname = "ge-screenshot-tool";
+    version = "0.0.1";
+    src = pkgs.fetchzip {
+      url = "https://extensions.gnome.org/extension-data/gnome-shell-screenshotttll.de.v43.shell-extension.zip";
+      sha256 = "0h54lgj4bzkafqgy940359pz7vbgj68paif8j9648d0x2r7y2dm4";
+      stripRoot = false;
+    };
+    installPhase = ''
+      mkdir -p $out
+      cp -r . $out
+    '';
+  };
 in
 {
   gtk = {
@@ -74,6 +88,9 @@ in
 
   # dash-to-dock
   home.file.".local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com".source = ge-dash-to-dock + "/dash-to-dock@micxgx.gmail.com";
+
+  #screenshot-tool
+  home.file.".local/share/gnome-shell/extensions/gnome-shell-screenshot@ttll.de".source = ge-screenshot-tool;
   
   # topicons-plus
   home.file.".local/share/gnome-shell/extensions/TopIcons@phocean.net".source = builtins.fetchGit {
@@ -121,6 +138,7 @@ in
           "TopIcons@phocean.net"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "notification-center@Selenium-H"
+          "gnome-shell-screenshot@ttll.de"
         ];
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
