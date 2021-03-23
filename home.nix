@@ -12,6 +12,7 @@ let
   };
 
   oldpkgs = import oldpkgsSrc {};
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in
 {
@@ -24,6 +25,7 @@ in
       ./terminal.nix
       ./editors.nix
       ./git.nix
+      ./go.nix
   ];
 
   # This value determines the Home Manager release that your
@@ -53,6 +55,7 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    gdk-pixbuf
     slack-dark
     powerline
     jetbrains.phpstorm
@@ -66,7 +69,8 @@ in
     fd
     meld
     vlc
-    wpsoffice
+    unstable.glab
+    nodePackages.npm
   ];
 
   programs.bash.enable = true;
@@ -77,7 +81,7 @@ in
   xdg.mime.enable = true;
 
   xdg.configFile."parcellite/parcelliterc".text = ''
-    [rc]
+	[rc]
 	RCVersion=1
 	use_copy=true
 	use_primary=false
@@ -88,7 +92,7 @@ in
 	history_y=1
 	history_limit=25
 	data_size=0
-	item_size=5
+	item_size=500
 	automatic_paste=true
 	auto_key=true
 	auto_mouse=false
@@ -123,7 +127,7 @@ in
 
   programs.chromium = {
     enable = true;
-    package = pkgs.google-chrome;
+    package = unstable.google-chrome;
     extensions = [
       "kbfnbcaeplbcioakkpcpgfkobkghlhen" # grammarly
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin

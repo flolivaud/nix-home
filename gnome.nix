@@ -33,7 +33,7 @@ let
     version = "0.0.1";
     src = pkgs.fetchzip {
       url = "https://extensions.gnome.org/extension-data/notification-centerSelenium-H.v18.shell-extension.zip";
-      sha256 = "0m6a4fvqdh0yjsm5lkfgvf95vhxba902ailp19a38ccjxw15nhkf";
+      sha256 = "1bvk9xhzv08qm3x1sd6zkikbgn1aaawcxkrl1ckfpwd0z01c11gn";
       stripRoot = false;
     };
     installPhase = ''
@@ -64,11 +64,6 @@ in
       package = pkgs.arc-theme;
       name = "Arc-Dark";
     };
-
-    iconTheme = {
-      package = pkgs.flat-remix-icon-theme;
-      name = "Flat-Remix-Blue-Dark";
-    };
   }; 
 
   home.packages = with pkgs; [
@@ -98,11 +93,6 @@ in
     ref = "v22";
   };
  
-  # user-theme
- # home.file.".local/share/gnome-shell/extensions/TopIcons@phocean.net".source = builtins.fetchGit {
- #   url = "https://gitlab.gnome.org/GNOME/gnome-shell-extensions";
- # } + "/ extensions/user-theme" ;
-
   dconf.settings = {
       "org/gnome/terminal/legacy/keybindings" = {
         paste = "<Primary>v"; 

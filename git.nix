@@ -8,6 +8,7 @@
     userName = "Florent OLIVAUD";
     extraConfig = {
       credential.helper = "libsecret";
+      commit.gpgsign = true;
       merge."composer" = {
         name = "composer JSON file merge driver";
         driver = "~/.config/composer/vendor/bin/composer-git-merge-driver %O %A %B %L %P";

@@ -32,6 +32,7 @@
       # Add bin in PATH if not already existing
       [[ ":$PATH:" != *":$HOME/bin:"* ]] && export PATH="$PATH:$HOME/bin"
       [[ ":$PATH:" != *":$HOME/Projects/ecom/magento2/tools/rm-scripts/bin:"* ]] && export PATH="$PATH:$HOME/Projects/ecom/magento2/tools/rm-scripts/bin"
+      [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$PATH:$HOME/.local/bin"
     '';
 
     shellAliases = {
