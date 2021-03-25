@@ -1,39 +1,12 @@
 { pkgs, ... }: 
 
 let 
-  ge-dash-to-dock = pkgs.stdenv.mkDerivation {
-    pname = "ge-dash-to-dock";
-    version = "0.0.1";
-    buildInputs = [
-      pkgs.glib
-    ];
-    src = fetchGit {
-  	  url = "https://github.com/micheleg/dash-to-dock";
-      ref= "extensions.gnome.org-v65";
-	};
-    makeFlags = [ "INSTALLBASE=$(out)" ];
-  };
-
-  ge-user-theme = pkgs.stdenv.mkDerivation {
-    pname = "ge-user-theme";
-    version = "0.0.2";
-    src = pkgs.fetchzip {
-      url = "https://extensions.gnome.org/extension-data/user-theme%40gnome-shell-extensions.gcampax.github.com.v34.shell-extension.zip";
-      sha256 = "1m218y7ypyz75fj1hkbqhkzvn23g8yl6bwhvwvq9iwcqszadxs4i";
-      stripRoot = false;
-    };
-    installPhase = ''
-      mkdir -p $out
-      cp -r . $out
-    '';
-  };
-
   ge-notification-center = pkgs.stdenv.mkDerivation {
     pname = "ge-notification-center";
-    version = "0.0.1";
+    version = "0.0.2";
     src = pkgs.fetchzip {
-      url = "https://extensions.gnome.org/extension-data/notification-centerSelenium-H.v18.shell-extension.zip";
-      sha256 = "1bvk9xhzv08qm3x1sd6zkikbgn1aaawcxkrl1ckfpwd0z01c11gn";
+      url = "https://extensions.gnome.org/extension-data/notification-centerSelenium-H.v20.shell-extension.zip";
+      sha256 = "01f9pjny35cw62zrffhjhmsg863xz294d2hn5nqf7n3995qziz4m";
       stripRoot = false;
     };
     installPhase = ''
@@ -44,10 +17,10 @@ let
 
   ge-screenshot-tool = pkgs.stdenv.mkDerivation {
     pname = "ge-screenshot-tool";
-    version = "0.0.1";
+    version = "0.0.2";
     src = pkgs.fetchzip {
-      url = "https://extensions.gnome.org/extension-data/gnome-shell-screenshotttll.de.v43.shell-extension.zip";
-      sha256 = "0h54lgj4bzkafqgy940359pz7vbgj68paif8j9648d0x2r7y2dm4";
+      url = "https://extensions.gnome.org/extension-data/gnome-shell-screenshotttll.de.v56.shell-extension.zip";
+      sha256 = "07bg3fgg9k7wqyd746w75a12vzm93dn4wr3l1czd6864f4pmalpd";
       stripRoot = false;
     };
     installPhase = ''
@@ -70,9 +43,6 @@ in
     gnome3.dconf-editor
   ];
 
-  # user-theme
-  home.file.".local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com".source = ge-user-theme;
-
   # permanent-notification
   home.file.".local/share/gnome-shell/extensions/permanent-notifications@bonzini.gnu.org".source = builtins.fetchGit {
     url = "https://github.com/bonzini/gnome-shell-permanent-notifications";
@@ -81,16 +51,12 @@ in
   # notification-center
   home.file.".local/share/gnome-shell/extensions/notification-center@Selenium-H".source = ge-notification-center;
 
-  # dash-to-dock
-  home.file.".local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com".source = ge-dash-to-dock + "/dash-to-dock@micxgx.gmail.com";
-
   #screenshot-tool
   home.file.".local/share/gnome-shell/extensions/gnome-shell-screenshot@ttll.de".source = ge-screenshot-tool;
   
   # topicons-plus
   home.file.".local/share/gnome-shell/extensions/TopIcons@phocean.net".source = builtins.fetchGit {
     url = "https://github.com/phocean/TopIcons-plus";
-    ref = "v22";
   };
  
   dconf.settings = {

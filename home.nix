@@ -55,12 +55,8 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    gdk-pixbuf
     slack-dark
     powerline
-    jetbrains.phpstorm
-    php
-    php73Packages.composer 
     remmina
     arc-theme
     flat-remix-icon-theme 
@@ -71,6 +67,8 @@ in
     vlc
     unstable.glab
     nodePackages.npm
+    gnomeExtensions.dash-to-dock
+    gnome3.gnome-shell-extensions
   ];
 
   programs.bash.enable = true;
