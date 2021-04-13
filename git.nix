@@ -6,6 +6,9 @@
     package = pkgs.gitAndTools.gitFull;
     userEmail = "olivaud.florent@gmail.com";
     userName = "Florent OLIVAUD";
+    aliases = {
+      capf = "!git commit -a --amend --no-edit && git push -f";
+    };
     extraConfig = {
       credential.helper = "libsecret";
       commit.gpgsign = true;
@@ -16,6 +19,9 @@
       };
       pull = {
         rebase = true;
+      };
+      push = {
+        default = "current";
       };
       status = {
         submoduleSummary = true;

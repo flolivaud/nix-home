@@ -66,9 +66,12 @@ in
     meld
     vlc
     unstable.glab
-    nodePackages.npm
     gnomeExtensions.dash-to-dock
     gnome3.gnome-shell-extensions
+    nodejs-14_x
+    shadow
+    awscli
+    unstable.postman
   ];
 
   programs.bash.enable = true;
